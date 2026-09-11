@@ -1,0 +1,302 @@
+/* ===== DESIGN SYSTEM ===== */
+:root {
+    /* Cores */
+    --cor-primaria: #1565c0;
+    --cor-secundaria: #2e7d32;
+    --cor-destaque: #f9a825;
+    --cor-branca: #ffffff;
+    --cor-fundo: #f5f5f5;
+    --cor-cinza-claro: #e0e0e0;
+    --cor-cinza: #757575;
+    --cor-texto: #212121;
+
+    /* Tipografia */
+    --fonte-xs: 0.75rem;
+    --fonte-sm: 0.875rem;
+    --fonte-md: 1rem;
+    --fonte-lg: 1.5rem;
+    --fonte-xl: 2rem;
+
+    /* Espaçamentos */
+    --espaco-xs: 4px;
+    --espaco-sm: 8px;
+    --espaco-md: 16px;
+    --espaco-lg: 24px;
+    --espaco-xl: 32px;
+}
+
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* ===== CABEÇALHO - FLEXBOX ===== */
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: var(--espaco-md);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espaco-md);
+}
+
+header h1 {
+    font-size: var(--fonte-xl);
+}
+
+/* ===== NAVEGAÇÃO ===== */
+nav {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-md);
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-size: var(--fonte-md);
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ===== GRID DE 12 COLUNAS ===== */
+main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-md);
+
+    max-width: 1200px;
+    margin: auto;
+    padding: var(--espaco-xl);
+}
+
+section {
+    grid-column: span 12;
+    background-color: var(--cor-branca);
+    padding: var(--espaco-lg);
+    border-radius: 8px;
+}
+
+section h2 {
+    color: var(--cor-primaria);
+    margin-bottom: var(--espaco-sm);
+    font-size: var(--fonte-lg);
+}
+
+section p {
+    margin-bottom: var(--espaco-md);
+}
+
+/* ===== BOTÕES/LINKS ===== */
+section a {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branca);
+    padding: var(--espaco-sm) var(--espaco-md);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+section a:hover {
+    opacity: 0.9;
+}
+
+/* ===== RODAPÉ - FLEXBOX ===== */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cor-texto);
+    color: var(--cor-branca);
+    padding: var(--espaco-md);
+}
+
+/* ===== BREAKPOINT 1 - ATÉ 575px ===== */
+@media (max-width: 575px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    main {
+        padding: var(--espaco-md);
+    }
+}
+
+/* ===== BREAKPOINT 2 - 576px ===== */
+@media (min-width: 576px) {
+    main {
+        padding: var(--espaco-md);
+    }
+}
+
+/* ===== BREAKPOINT 3 - 768px ===== */
+@media (min-width: 768px) {
+    main {
+        padding: var(--espaco-lg);
+    }
+
+    section {
+        grid-column: span 6;
+    }
+}
+
+/* ===== BREAKPOINT 4 - 992px ===== */
+@media (min-width: 992px) {
+    main {
+        gap: var(--espaco-lg);
+    }
+}
+
+/* ===== BREAKPOINT 5 - 1200px ===== */
+@media (min-width: 1200px) {
+    main {
+        max-width: 1200px;
+    }
+}
+
+/* ===== COMPONENTES DE FEEDBACK ===== */
+
+.feedback {
+    margin: 25px auto;
+    max-width: 1150px;
+}
+
+.badge {
+    background-color: #0d6efd;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+}
+
+.alerta {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #d4edda;
+    border: 1px solid #198754;
+    border-radius: 6px;
+    color: #155724;
+}
+
+.toast {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    width: 250px;
+}
+
+/* ===== TELA DE CADASTRO ===== */
+
+.cadastro {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.cadastro h2 {
+    margin-bottom: 10px;
+}
+
+.cadastro form {
+    margin-top: 25px;
+}
+
+.cadastro fieldset {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.cadastro legend {
+    font-weight: bold;
+    color: #0d66c2;
+    padding: 0 8px;
+}
+
+.cadastro label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.cadastro input,
+.cadastro select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.cadastro input:focus,
+.cadastro select:focus {
+    outline: none;
+    border-color: #0d66c2;
+    box-shadow: 0 0 4px rgba(13, 102, 194, 0.4);
+}
+
+.cadastro button {
+    background-color: #278536;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cadastro button:hover {
+    background-color: #1e6d2b;
+}
+
+.cadastro button:active {
+    transform: scale(0.98);
+}
+
+/* Feedback de validação */
+
+.cadastro input:focus:invalid {
+    border-color: #dc3545;
+}
+
+.cadastro input:valid {
+    border-color: #198754;
+}
+
+.mensagem-sucesso {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #198754;
+    border-radius: 6px;
+}
